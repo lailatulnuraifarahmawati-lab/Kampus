@@ -31,22 +31,28 @@ class SeminarController extends Controller
         return view('seminars.index', compact('seminar'));
     }
 
-    public function edit(Seminar $seminar)
-    {
-        return view('seminars.edit', compact('seminar'));
-    }
+   public function edit($id)
+{
+    $seminar = Seminar::findOrFail($id);
 
-    public function update(Request $request, Seminar $seminar)
-    {
-        $seminar->update($request->all());
+    return view('seminars.edit', compact('seminar'));
+}
 
-        return redirect()->route('seminars.index');
-    }
+   public function update(Request $request, $id)
+{
+    $seminar = Seminar::findOrFail($id);
 
-    public function destroy(Seminar $seminar)
-    {
-        $seminar->delete();
+    $seminar->update($request->all());
 
-        return redirect()->route('seminars.index');
-    }
+    return redirect()->route('seminars.index');
+}
+
+   public function destroy($id)
+{
+    $seminar = Seminar::findOrFail($id);
+
+    $seminar->delete();
+
+    return redirect()->route('seminars.index');
+}
 }

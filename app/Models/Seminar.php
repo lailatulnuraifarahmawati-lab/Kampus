@@ -8,6 +8,11 @@ class Seminar extends Model
 {
     protected $primaryKey = 'id_event';
 
+    public function getRouteKeyName()
+    {
+        return 'id_event';
+    }
+
     protected $fillable = [
         'nama_ormawa',
         'nama_kegiatan',
