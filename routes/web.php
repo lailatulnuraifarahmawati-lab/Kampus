@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\SeminarController;
 
-Route::get('/seminars', function () {
-    return view('seminars.index');
+Route::resource('seminars', SeminarController::class);
+
+Route::get('/', function () {
+    return redirect('/seminars');
 });
