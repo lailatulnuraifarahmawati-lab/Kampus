@@ -1,10 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SeminarController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'Laravel berjalan!';
 });
-
-Route::resource('seminars', SeminarController::class);

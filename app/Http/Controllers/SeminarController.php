@@ -9,10 +9,8 @@ class SeminarController extends Controller
 {
     public function index()
     {
-        $seminars = Seminar::all();
-        return view('seminars.index', compact('seminars'));
+        return 'Laravel berhasil berjalan';
     }
-
     public function create()
     {
         return view('seminars.create');
